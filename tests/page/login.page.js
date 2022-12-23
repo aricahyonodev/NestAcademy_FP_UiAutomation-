@@ -1,4 +1,4 @@
-export const usernameField = "#user-name";
-export const passwordField = "#password";
-export const loginButton = '[name="login-button"]';
-export const errorMessage = '[data-test="error"]';
+// export const usernameField = "#user-name";
+export const topNavigationTitle = ".mainHeading";
+export const customerLoginButton = '[ng-click="customer()"]';
+export const managerLoginButton = '[ng-click="manager()"]';
