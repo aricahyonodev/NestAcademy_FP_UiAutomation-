@@ -1,5 +1,5 @@
 export const BASE_URL = {
-  DASHBOARD: Cypress.env("base_url"),
+  DASHBOARD: Cypress.env("BASE_URL"),
 };
 
 export function visit(routes) {

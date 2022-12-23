@@ -11,7 +11,7 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   defaultCommandTimeout: 10000,
   env: {
-    base_url: process.env.BASE_URL,
+    ...process.env,
   },
   e2e: {
     setupNodeEvents(on, config) {
