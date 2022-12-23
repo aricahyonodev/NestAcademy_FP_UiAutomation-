@@ -1,0 +1,19 @@
+{
+  "name": "ui-automation",
+  "version": "1.0.0",
+  "description": "desc",
+  "main": "index.js",
+  "author": "Kelompok 2 Nest Academy QA Batch 7 (Ari Cahyono & Syahiid Nur Kamil)",
+  "license": "MIT",
+  "dependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@faker-js/faker": "^7.6.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "cypress": "^12.1.0",
+    "prettier": "^2.8.1"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  }
+}
