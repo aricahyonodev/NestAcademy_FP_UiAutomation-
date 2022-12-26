@@ -56,4 +56,149 @@ describe("Add Account Page", () => {
     });
   });
 
+  describe("Negative Case", () => {
+    describe("with empty data", () => {
+      it("Verify Add Account submission when the form is submitted with empty data", () => {
+        element.click(loginPage.managerLoginButton);
+        element.click(managerLoginPage.addAccountButton);
+        element.click(addAccountPage.addCustomersButton);
+        const elmFirstname = addAccountPage.firstnameField;
+        cy.get(elmFirstname).then(($input) => {
+          expect($input[0].validationMessage).to.eq(
+            "Please fill out this field."
+          );
+        });
+      });
+    });
+
+    describe("with 1 data", () => {
+      it("Verify Add Account submission when the form is submitted with input only firstname field", () => {
+        element.click(loginPage.managerLoginButton);
+        element.click(managerLoginPage.addAccountButton);
+        element.click(addAccountPage.addCustomersButton);
+        const elmFirstname = addAccountPage.firstnameField;
+        const valFirstname = dtCs.CUSTOMER_REGISTERED.firstname;
+        element.fillfield(elmFirstname, valFirstname);
+        
+        const elmLastname = addAccountPage.lastnameField;
+        cy.get(elmLastname).then(($input) => {
+          expect($input[0].validationMessage).to.eq(
+            "Please fill out this field."
+          );
+        });
+      });
+
+      it("Verify Add Account submission when the form is submitted with input only lastname field", () => {
+        element.click(loginPage.managerLoginButton);
+        element.click(managerLoginPage.addAccountButton);
+        element.click(addAccountPage.addCustomersButton);
+        const elmLastname = addAccountPage.lastnameField;
+        const valLastname = dtCs.CUSTOMER_REGISTERED.lastname;
+        element.fillfield(elmLastname, valLastname);
+
+        const elmFirstname = addAccountPage.firstnameField;
+        cy.get(elmFirstname).then(($input) => {
+          expect($input[0].validationMessage).to.eq(
+            "Please fill out this field."
+          );
+        });
+      });
+      
+      it("Verify Add Account submission when the form is submitted with input only postcode field", () => {
+        element.click(loginPage.managerLoginButton);
+        element.click(managerLoginPage.addAccountButton);
+        element.click(addAccountPage.addCustomersButton);
+        const elmPostcode = addAccountPage.postcodeField;
+        const valPostcode = dtCs.CUSTOMER_REGISTERED.postCode;
+        element.fillfield(elmPostcode, valPostcode);
+
+        const elmFirstname = addAccountPage.firstnameField;
+        cy.get(elmFirstname).then(($input) => {
+          expect($input[0].validationMessage).to.eq(
+            "Please fill out this field."
+          );
+        });
+      });
+    });
+
+     describe("with 2 data", () => {
+       it("Verify Add Account submission when the form is submitted with only firstname & lastname field", () => {
+         element.click(loginPage.managerLoginButton);
+         element.click(managerLoginPage.addAccountButton);
+         element.click(addAccountPage.addCustomersButton);
+
+         // Input Firstname
+         const elmFirstname = addAccountPage.firstnameField;
+         const valFirstname = dtCs.CUSTOMER_REGISTERED.firstname;
+         element.fillfield(elmFirstname, valFirstname);
+
+         // Input Lastname
+         const elmLastname = addAccountPage.lastnameField;
+         const valLastname = dtCs.CUSTOMER_REGISTERED.lastname;
+         element.fillfield(elmLastname, valLastname);
+
+         // Input Postcode
+         element.click(addAccountPage.addCustomersButton);
+
+         const elmPostcode = addAccountPage.postcodeField;
+         cy.get(elmPostcode).then(($input) => {
+           expect($input[0].validationMessage).to.eq(
+             "Please fill out this field."
+           );
+         });
+       });
+
+        it("Verify Add Account submission when the form is submitted with only firstname & postcode field", () => {
+          element.click(loginPage.managerLoginButton);
+          element.click(managerLoginPage.addAccountButton);
+          element.click(addAccountPage.addCustomersButton);
+
+          // Input Firstname
+          const elmFirstname = addAccountPage.firstnameField;
+          const valFirstname = dtCs.CUSTOMER_REGISTERED.firstname;
+          element.fillfield(elmFirstname, valFirstname);
+
+          // Input Postcode
+          const elmPostcode = addAccountPage.postcodeField;
+          const valPostcode = dtCs.CUSTOMER_REGISTERED.postCode;
+          element.fillfield(elmPostcode, valPostcode);
+
+          element.click(addAccountPage.addCustomersButton);
+
+          const elmLastname = addAccountPage.lastnameField;
+          cy.get(elmLastname).then(($input) => {
+            expect($input[0].validationMessage).to.eq(
+              "Please fill out this field."
+            );
+          });
+        });
+
+         it("Verify Add Account submission when the form is submitted with only lastname & postcode field", () => {
+           element.click(loginPage.managerLoginButton);
+           element.click(managerLoginPage.addAccountButton);
+           element.click(addAccountPage.addCustomersButton);
+
+           // Input Lastname
+           const elmLastname = addAccountPage.lastnameField;
+           const valLastname = dtCs.CUSTOMER_REGISTERED.lastname;
+           element.fillfield(elmLastname, valLastname);
+
+           // Input Postcode
+           const elmPostcode = addAccountPage.postcodeField;
+           const valPostcode = dtCs.CUSTOMER_REGISTERED.postCode;
+           element.fillfield(elmPostcode, valPostcode);
+
+           element.click(addAccountPage.addCustomersButton);
+           const elmFirstname = addAccountPage.firstnameField;
+           cy.get(elmFirstname).then(($input) => {
+             expect($input[0].validationMessage).to.eq(
+               "Please fill out this field."
+             );
+           });
+
+         });
+
+     });
+
+  });
 });
