@@ -8,13 +8,13 @@ import * as managerLoginPage from "@tests/page/bank-manager-login.page";
 import * as addAccountPage from "@tests/page/add-account.page";
 import * as customersPage from "@tests/page/customers.page";
 
-describe("Login Page", () => {
+describe("Add Account Page", () => {
   beforeEach(() => {
     route.visit(ROUTES.login);
   });
 
   describe("Positive Case", () => {
-    it("displays the correct web title", () => {
+    it("Verify Add Account submission when the form is submitted with valid input", () => {
       element.click(loginPage.managerLoginButton);
       element.click(managerLoginPage.addAccountButton);
 
@@ -38,7 +38,6 @@ describe("Login Page", () => {
       const valFirstnameEmpty = dtCs.CUSTOMER_EMPTY.firstname;
       const valLastnameEmpty = dtCs.CUSTOMER_EMPTY.firstname;
       const valPostcodeEmpty = dtCs.CUSTOMER_EMPTY.postCode;
-
       // assert
       assert.shouldContainText(elmFirstname, valFirstnameEmpty);
       assert.shouldContainText(elmLastname, valLastnameEmpty);
@@ -48,7 +47,7 @@ describe("Login Page", () => {
 
       const elmSearchCustomers = customersPage.searchField;
       element.fillfield(elmSearchCustomers, valFirstname);
-     
+
       // assert
       const elmTableCustomers = customersPage.table;
       assert.shouldContainText(elmTableCustomers, valFirstname);

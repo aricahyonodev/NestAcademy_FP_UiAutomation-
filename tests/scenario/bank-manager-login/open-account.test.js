@@ -8,7 +8,7 @@ import * as managerLoginPage from "@tests/page/bank-manager-login.page";
 import * as addAccountPage from "@tests/page/add-account.page";
 import * as openAccountPage from "@tests/page/open-account.page";
 
-describe("Open Account", () => {
+describe("Open Account Page", () => {
   let accountId = null;
 
   beforeEach(() => {
@@ -39,17 +39,17 @@ describe("Open Account", () => {
   });
 
   describe("Positive Case", () => {
-    it("displays the correct web title", () => {
+    it("Verify Open Account submission when the form is submitted with valid input", () => {
       element.click(loginPage.managerLoginButton);
       element.click(managerLoginPage.openAccountButton);
-      
+
       element.select(openAccountPage.selectCustomer, accountId);
       assert.shouldHaveValue(openAccountPage.selectCustomer, accountId);
-      
+
       element.select(openAccountPage.selectCurrency, "Dollar");
       assert.shouldHaveValue(openAccountPage.selectCurrency, "Dollar");
       element.click(openAccountPage.processButton);
-      
+
       assert.shouldHaveValue(openAccountPage.selectCustomer, "");
       assert.shouldHaveValue(openAccountPage.selectCurrency, "");
       //  cy.on("window:alert", (txt) => {
@@ -57,7 +57,6 @@ describe("Open Account", () => {
       //    const openAccountId = txt.replace(alertMsg, "");
       //    console.log(openAccountId);
       //  });
-     
     });
   });
 });

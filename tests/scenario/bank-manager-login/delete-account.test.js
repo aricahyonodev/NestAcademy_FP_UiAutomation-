@@ -48,7 +48,7 @@ describe("Delete Account", () => {
   let openAccountId = null;
 
     beforeEach(()=>{
-         element.select(openAccountPage.selectCustomer, 6);
+         element.select(openAccountPage.selectCustomer, accountId);
          element.select(openAccountPage.selectCurrency, "Dollar");
          element.click(openAccountPage.processButton);
 
