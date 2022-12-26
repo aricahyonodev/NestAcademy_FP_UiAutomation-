@@ -19,14 +19,14 @@ describe("Verify Login Page", () => {
     });
   });
 
-  describe('Test "Customer Login" button', () => {
-    it("is present on the page", () => {
+  describe("Verify Customer Login Button", () => {
+    it("is visible", () => {
       assert
         .shouldContainText(loginPage.customerLoginButton, "Customer Login")
         .should("be.visible");
     });
 
-    it("redirects to the correct page when clicked", () => {
+    it("redirects to Customer Dashboard when clicked", () => {
       element.click(loginPage.customerLoginButton);
       assert.shouldUrlInclude("/customer");
     });
